@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>『聖誕的愛 愛的誕生』報到</title>
+	<title>『聖誕的愛 愛的誕生』報到處</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -33,7 +33,25 @@
 		transition-duration: 2s;
 		transition-property: opacity;
 	}
+
+	form { 
+		margin: 0 auto; 
+	}
 </style>
+<script>
+
+
+function redirect(){
+
+	if(typeof sent_redirect!='undefined'){
+		var name = document.getElementById('name_input').value;
+				window.location='./redirect.html?name='+name;
+	}
+
+
+}
+
+</script>
 <body>
 	
 	<div class="limiter">
@@ -52,12 +70,13 @@
 					請輸入您的姓名
 				</span>
 
-				<iframe name="iframe_redirect" id="iframe_redirect" style="display:none;" onload="if(typeof sent_redirect!='undefined'){window.location='./redirect.html';}"></iframe>
+				<!--<iframe name="iframe_redirect" id="iframe_redirect" style="display:none;" onload="if(typeof sent_redirect!='undefined'){window.location='./redirect.html';}"></iframe>-->
+				<iframe name="iframe_redirect" id="iframe_redirect" style="display:none;" onload="redirect()"></iframe>
 				<form onsubmit="sent_redirect=true" target="iframe_redirect" class="login100-form validate-form p-b-33 p-t-5" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeUqLjpc8GDRtM0a7Pw8abF6woxMoYNUbAZ4AkTuwtY5yfLoA/formResponse" method="post">
 					
 
 					<div class="wrap-input100 validate-input" data-validate = "請輸入姓名喔">
-						<input class="input100" type="text" name="entry.947631564" placeholder="姓名">
+						<input id = "name_input" class="input100" type="text" name="entry.947631564" placeholder="姓名">
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 
@@ -107,7 +126,6 @@
 </html>
 
 <script>
-
 
 
 

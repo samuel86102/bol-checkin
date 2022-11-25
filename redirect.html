@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>『聖誕的愛 愛的誕生』報到</title>
+	<title>『聖誕的愛 愛的誕生』報到處</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -13,8 +13,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css"> <!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
@@ -33,6 +32,9 @@
 		transition-duration: 2s;
 		transition-property: opacity;
 	}
+	span{
+		line-height: 1.5!important;
+	}
 </style>
 <body>
 	
@@ -48,7 +50,7 @@
 				</div>
 
 
-				<span class="login100-form-title p-b-41">
+				<span class="login100-form-title p-b-41" id="display_text">
 					恭喜您報到成功!
 				</span>
 
@@ -115,6 +117,25 @@ document.body.className = 'fade';
       }, 230);
     });
 
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	const name = urlParams.get('name')
+	console.log(name);
+	
+	display_text_element = document.getElementById('display_text')
+
+	if(name.length==3){
+		new_name = name[1] + name[2];
+	}
+	else{
+		new_name = name;
+	}
+	
+	welcome_text = '嗨 ' + new_name + '<br>恭喜您報到成功!';
+
+
+	//display_text_element.textContent = welcome_text;
+	display_text_element.innerHTML = welcome_text;
 
 
 
